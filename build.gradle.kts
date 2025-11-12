@@ -19,12 +19,10 @@ plugins {
     alias(libs.plugins.xemantic.conventions)
 }
 
-// TODO change the group
-group = "com.xemantic.template"
+group = "com.xemantic.kotlin.process"
 
-// TODO fill up the details
 xemantic {
-    description = "A template repository for Xemantic's Kotlin multiplatform projects"
+    description = "Kotlin multiplatform and coroutine friendly process spawning"
     inceptionYear = "2025"
     applyAllConventions()
 }
@@ -42,7 +40,6 @@ val kotlinTarget = KotlinVersion.fromVersion(libs.versions.kotlinTarget.get())
 
 kotlin {
 
-    // TODO remove for a non-library project
     explicitApi()
 
     compilerOptions {
@@ -71,7 +68,6 @@ kotlin {
     js {
         browser()
         nodejs()
-        // TODO remove for a non-library project
         binaries.library()
     }
 
@@ -79,13 +75,11 @@ kotlin {
         browser()
         nodejs()
         d8()
-        // TODO remove for a non-library project
         binaries.library()
     }
 
     wasmWasi {
         nodejs()
-        // TODO remove for a non-library project
         binaries.library()
     }
 
@@ -140,19 +134,6 @@ tasks {
     named("tvosSimulatorArm64Test") { enabled = false }
     named("watchosSimulatorArm64Test") { enabled = false }
 }
-
-// TODO only relevant for private projects, public project snapshots are released to maven central
-//publishing {
-//    if (isPublishingToGitHub) {
-//        repositories {
-//            maven {
-//                name = "GitHubPackages"
-//                url = uri("https://maven.pkg.github.com/xemantic/xemantic-kotlin-core")
-//                credentials(PasswordCredentials::class)
-//            }
-//        }
-//    }
-//}
 
 powerAssert {
     functions = listOf(

@@ -14,14 +14,12 @@
  * limitations under the License.
  */
 
-// TODO replace with your package
-package com.xemantic.template.kotlin.multiplatform
+package com.xemantic.kotlin.process
 
 import com.xemantic.kotlin.test.have
 import com.xemantic.kotlin.test.should
 import kotlin.test.Test
 
-// TODO replace with your code
 class HelloWorldTest {
 
     @Test

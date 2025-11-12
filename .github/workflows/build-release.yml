@@ -37,17 +37,12 @@ jobs:
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
           ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_KEY }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_PASSWORD }}
-          # TODO skip JRELEASER for private projects
           JRELEASER_DISCORD_WEBHOOK: ${{ secrets.DISCORD_ANNOUCEMENTS_WEBHOOK }}
           JRELEASER_LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
           JRELEASER_LINKEDIN_OWNER: ${{ secrets.LINKEDIN_OWNER }}
           JRELEASER_BLUESKY_HOST: ${{ vars.BLUESKY_HOST }}
           JRELEASER_BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
           JRELEASER_BLUESKY_PASSWORD: ${{ secrets.BLUESKY_PASSWORD }}
-# TODO if deploying to GitHub Packages (private projects)
-#          ORG_GRADLE_PROJECT_GitHubPackagesUsername: ${{ secrets.GITHUBACTOR }}
-#          ORG_GRADLE_PROJECT_GitHubPackagesPassword: ${{ secrets.GITHUBTOKEN }}
-# TODO if deploying to GitHubPackages use publishAllPublicationsToGitHubPackagesRepository and no jreleaserAnnounce
         run: ./gradlew -Pversion=$VERSION build publishToMavenCentral jreleaserAnnounce --no-configuration-cache
 
       - name: Get target branch for tag
